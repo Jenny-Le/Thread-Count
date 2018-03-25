@@ -2,7 +2,17 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+
+
+
+//Doing a get request to the backend
 class App extends Component {
+  componentDidMount () {
+    fetch('/api/users')
+    .then( res => res.json())
+    .then(users => console.log(users));
+  }
+
   render() {
     return (
       <div className="App">
