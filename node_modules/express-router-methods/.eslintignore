@@ -1,0 +1,4 @@
+node_modules/*
+test/*
+**/__test__/*
+*.test.js
