@@ -1,14 +1,35 @@
-import React from "react";
+import React, { Component } from "react";
 import Login from "../Login";
 import Signup from "../Signup";
 
-const Jcole = () => {
-    return (
-        <div>
-            <Login/>
-            <Signup/>
-        </div>
-    )
+class Jcole extends Component {
+    state = {
+        form: 'login'
+    }
+
+    handleFormChange(form) {
+        //Updating your components state
+        this.setState({form: form});
+    }
+
+    renderForm() {
+        if(this.state.form === 'login') {
+            //Bind is telling us that this is referencing the Jcole component because there's so many being passed around
+            return <Login handleFormChange={this.handleFormChange.bind(this)}/>
+        } else {
+            return <Signup />
+        }
+    }
+
+    render() {
+        return (
+            <div>
+            {
+                this.renderForm()
+            }
+            </div>
+        )
+    }
 }
 
 
