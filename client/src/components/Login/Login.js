@@ -20,7 +20,8 @@ const Login = (props) => {
                 </div>
             </form>
             <div className="col s12 member">
-                Don't have an account? <span onClick={() => props.handleFormChange('signup')}>Sign up here</span>
+                Don't have an account? <span onClick={() => props.handleFormChange('signup')}>
+                <div className="sign-up">Sign up here</div></span>
             </div>
         </div>
     )
