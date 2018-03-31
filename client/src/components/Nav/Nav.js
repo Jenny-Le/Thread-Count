@@ -17,6 +17,8 @@ const Nav = () => {
 
           <ul id="nav-mobile" className="right">
             <li><a href="/signup">Login / Sign Up</a></li>
+            <li><a href="/girls">Girls</a></li>
+            <li><a href="/boys">Boys</a></li>
           </ul>
           </div>
           </div>

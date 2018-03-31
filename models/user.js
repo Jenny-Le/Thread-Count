@@ -10,11 +10,7 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    quote: {
-        type: String,
-        required: false
-    },
-
+    
     password: {
         type: String,
         trim: true,

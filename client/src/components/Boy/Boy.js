@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import "./boy.css";
 
 const Boy = () => {
     return (
-        console.log(boy)
+        <h1>Boys</h1>
     )
 }
 

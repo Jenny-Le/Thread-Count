@@ -23,6 +23,10 @@ const Login = (props) => {
                 Don't have an account? <span onClick={() => props.handleFormChange('signup')}>
                 <div className="sign-up">Sign up here</div></span>
             </div>
+
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+         <i class="material-icons right">send</i>
+        </button>
         </div>
     )
 }

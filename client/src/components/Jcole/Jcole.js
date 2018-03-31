@@ -17,7 +17,7 @@ class Jcole extends Component {
             //Bind is telling us that this is referencing the Jcole component because there's so many being passed around
             return <Login handleFormChange={this.handleFormChange.bind(this)}/>
         } else {
-            return <Signup />
+            return <Signup handleFormChange={this.handleFormChange.bind(this)}/>
         }
     }
 
