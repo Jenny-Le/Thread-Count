@@ -4,8 +4,7 @@ import Logo from './components/Logo';
 import Nav from './components/Nav';
 import Home from './components/Home';
 import Jcole from './components/Jcole';
-import Boy from './components/Girl';
-import Girl from './components/Boy';
+import NewListing from './components/NewListing';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min.js';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -30,8 +29,8 @@ class App extends Component {
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Jcole} />
         <Route exact path="/signup" component={Jcole} />
-        <Route exact path="/girls" component={Girl}/>
-        <Route exact path="/boys" component={Boy}/>
+        <Route exact path ="/listings/new" component={NewListing}/>
+    
       </Switch>
     </div>
   </Router>
