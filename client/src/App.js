@@ -5,6 +5,7 @@ import Nav from './components/Nav';
 import Home from './components/Home';
 import Jcole from './components/Jcole';
 import NewListing from './components/NewListing';
+import UserEdit from './components/UserEdit';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min.js';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -30,7 +31,7 @@ class App extends Component {
         <Route exact path="/login" component={Jcole} />
         <Route exact path="/signup" component={Jcole} />
         <Route exact path ="/listings/new" component={NewListing}/>
-    
+        <Route exact path ="/users/:id/edit" component={UserEdit}/>
       </Switch>
     </div>
   </Router>

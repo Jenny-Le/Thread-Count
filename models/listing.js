@@ -2,7 +2,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const listingSchema = new Schema({
-    brand: {
+    gender: {
+        type:String,
+        required: true
+    },
+
+    category: {
         type: String,
         required: true
     },

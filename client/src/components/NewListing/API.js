@@ -6,7 +6,9 @@ export default {
       return axios.post("/api/listings", {
           gender: userData.gender,
           category: userData.category,
+          size: userData.size,
           condition: userData.condition,
+          price: userData.price
       }).then(function(response){
           console.log(response);
       }).catch(function(error){

@@ -10,7 +10,9 @@ class NewListing extends Component {
     this.state = {
       gender: '',
       category: '',
-      condition: ''
+      size: '',
+      condition: '',
+      price:''
 
     }
   }
@@ -40,28 +42,44 @@ class NewListing extends Component {
           </div>
           <form className="col s12" id="new-listing">
               <div className="input-field col s12">
-                <select name="gender" onChange={this.handleChange.bind(this)} value={this.state.gender}>
+                <select id="gender" onChange={this.handleChange.bind(this)} value={this.state.gender}>
                   <option value="" disabled selected>Gender</option>
-                  <option value="1">Boy</option>
-                  <option value="2">Girl</option>
+                  <option value="boy">Boy</option>
+                  <option value="girl">Girl</option>
                 </select>
               </div>
               <div className="input-field col s12">
-                <select name="category" onChange={this.handleChange.bind(this)} value={this.state.category}>
+                <select id="category" onChange={this.handleChange.bind(this)} value={this.state.category}>
                   <option value="" disabled selected>Category</option>
-                  <option value="1">Tops</option>
-                  <option value="2">Bottoms</option>
-                  <option value="3">Dresses</option>
-                  <option value="4">Accessories</option>
+                  <option value="tops">Tops</option>
+                  <option value="bottoms">Bottoms</option>
+                  <option value="dresses">Dresses</option>
+                  <option value="accessories">Accessories</option>
                 </select>
               </div>
               <div className="input-field col s12">
-                <select name="condition" onChange={this.handleChange.bind(this)} value={this.state.condition}>
+                <select id="size" onChange={this.handleChange.bind(this)} value={this.state.condition}>
+                  <option value="" disabled selected>Size</option>
+                  <option value="new born">New Born</option>
+                  <option value="infant">Infant</option>
+                  <option value="toddler">Toddler Months</option>
+                </select>
+            </div>
+              <div className="input-field col s12">
+                <select id="condition" onChange={this.handleChange.bind(this)} value={this.state.condition}>
                   <option value="" disabled selected>Condition</option>
-                  <option value="1">New</option>
-                  <option value="2">Gently Used</option>
-                  <option value="3">Dresses</option>
-                  <option value="4">Accessories</option>
+                  <option value="new">New</option>
+                  <option value="gently used">Gently Used</option>
+                </select>
+            </div>
+            <div className="input-field col s12">
+                <select id="price" onChange={this.handleChange.bind(this)} value={this.state.condition}>
+                  <option value="" disabled selected>Price</option>
+                  <option value="1.00">1.00</option>
+                  <option value="2.00">2.00</option>
+                  <option value="3.00">3.00</option>
+                  <option value="4.00">4.00</option>
+                  <option value="5.00">5.00</option>
                 </select>
             </div>
             <div className="col s12">
