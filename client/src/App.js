@@ -3,6 +3,7 @@ import './App.css';
 import Logo from './components/Logo';
 import Nav from './components/Nav';
 import Home from './components/Home';
+import ImageCard from './components/ImageCard';
 import Jcole from './components/Jcole';
 import NewListing from './components/NewListing';
 import UserEdit from './components/UserEdit';
@@ -32,6 +33,7 @@ class App extends Component {
         <Route exact path="/signup" component={Jcole} />
         <Route exact path ="/listings/new" component={NewListing}/>
         <Route exact path ="/users/:id/edit" component={UserEdit}/>
+        <Route exact path ="/image" component={ImageCard}/>
       </Switch>
     </div>
   </Router>
