@@ -12,8 +12,8 @@ class NewListing extends Component {
       category: '',
       size: '',
       condition: '',
-      price:''
-
+      price:'',
+      name: ''
     }
   }
 
@@ -42,6 +42,10 @@ class NewListing extends Component {
           </div>
           <form className="col s12" id="new-listing">
               <div className="input-field col s12">
+                <input id="name" type="text" onChange={this.handleChange.bind(this)} value={this.state.name} />
+                <label htmlFor="name">Item Name</label>
+              </div>
+              <div className="input-field col s12">
                 <select id="gender" onChange={this.handleChange.bind(this)} value={this.state.gender}>
                   <option value="" disabled selected>Gender</option>
                   <option value="boy">Boy</option>
@@ -62,7 +66,6 @@ class NewListing extends Component {
                   <option value="" disabled selected>Size</option>
                   <option value="new born">New Born</option>
                   <option value="infant">Infant</option>
-                  <option value="toddler">Toddler Months</option>
                 </select>
             </div>
               <div className="input-field col s12">

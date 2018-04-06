@@ -1,27 +1,25 @@
 import React from "react";
 
 
-const ImageCard = () => {
-
+const ImageCard = (props) => {
+    const listing = props.listing
     return (
-        <div className="row">
-            <div className="col s12 m7">
-                <div className="card">
-                    <div className="card-image">
-                        <img src="images/sample-1.jpg"/>
-                            <span className="card-title">Card Title</span>
-            </div>
-                        <div className="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-                        </div>
-                        <div className="card-action">
-                            <a href="#">This is a link</a>
-                        </div>
-                    </div>
+        <div className="col s3">
+            <div className="card">
+                <div className="card-image waves-effect waves-block waves-light">
+                    <img className="activator" src="images/office.jpg" />
+                </div>
+                <div className="card-content">
+                    <span className="card-title activator grey-text text-darken-4">{listing.name}<i className="material-icons right">more_vert</i></span>
+                <p><a href="#">${listing.price}.00</a></p>
+                </div>
+                <div className="card-reveal">
+                <span className="card-title grey-text text-darken-4">{listing.name}<i className="material-icons right">close</i></span>
+                <p>${listing.price}.00</p>
                 </div>
             </div>
-            )
-        }
-        
+        </div>
+    )
+}
+
 export default ImageCard;

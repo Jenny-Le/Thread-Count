@@ -7,6 +7,7 @@ import ImageCard from './components/ImageCard';
 import Jcole from './components/Jcole';
 import NewListing from './components/NewListing';
 import UserEdit from './components/UserEdit';
+import ProductLists from './components/ProductLists';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min.js';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -34,6 +35,7 @@ class App extends Component {
         <Route exact path ="/listings/new" component={NewListing}/>
         <Route exact path ="/users/:id/edit" component={UserEdit}/>
         <Route exact path ="/image" component={ImageCard}/>
+        <Route exact path ="/listings" component={ProductLists}/>
       </Switch>
     </div>
   </Router>
