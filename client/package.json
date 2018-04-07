@@ -19,6 +19,8 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "filestack-js": "^0.11.2",
+    "filestack-react": "^1.3.9",
     "jquery": "^3.3.1"
   }
 }

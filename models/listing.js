@@ -29,6 +29,10 @@ const listingSchema = new Schema({
     },
     user: {
         type: Schema.Types.ObjectId, ref: 'User'
+    },
+    image_url: {
+        type: String,
+        required: true
     }
 });
 const Listing = mongoose.model("Listing", listingSchema);

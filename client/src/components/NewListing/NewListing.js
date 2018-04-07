@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import API from "./API";
+import ReactFilestack, { client } from 'filestack-react';
 
-
+const filestack = client.init('A191qbrAQNOWujKcfjlh2z');
 
 class NewListing extends Component {
   constructor(props) {
@@ -13,7 +14,8 @@ class NewListing extends Component {
       size: '',
       condition: '',
       price:'',
-      name: ''
+      name: '',
+      image_url: ''
     }
   }
 
@@ -66,6 +68,7 @@ class NewListing extends Component {
                   <option value="" disabled selected>Size</option>
                   <option value="new born">New Born</option>
                   <option value="infant">Infant</option>
+                  <option value="infant">Toddler</option>
                 </select>
             </div>
               <div className="input-field col s12">
@@ -75,6 +78,13 @@ class NewListing extends Component {
                   <option value="gently used">Gently Used</option>
                 </select>
             </div>
+            <ReactFilestack
+              apikey="A191qbrAQNOWujKcfjlh2z"
+              buttonText="Click!"
+              onSuccess={response => this.setState({image_url: response.filesUploaded[0].url}, () => console.log(this.state))}
+              // onError={() => document.getElementById('store-url-response').innerHTML = 'Error!'}
+            />
+
             <div className="input-field col s12">
                 <select id="price" onChange={this.handleChange.bind(this)} value={this.state.condition}>
                   <option value="" disabled selected>Price</option>
@@ -94,7 +104,9 @@ class NewListing extends Component {
         </div>   
       )
     }
+
 }
+
 
 export default NewListing;
 
