@@ -38,7 +38,7 @@ app.use(routes);
 // // Add routes, both API and view
 // app.use(routes);
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/threadCount");
+mongoose.connect("mongodb://heroku_3f9w290t:heroku_3f9w290t@ds047692.mlab.com:47692/heroku_3f9w290t");
 
 
 // Start the API server
