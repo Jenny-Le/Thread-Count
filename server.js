@@ -38,7 +38,7 @@ app.use(routes);
 // // Add routes, both API and view
 // app.use(routes);
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://heroku_3f9w290t:heroku_3f9w290t@ds047692.mlab.com:47692/heroku_3f9w290t");
+mongoose.connect("mongodb://heroku_3f9w290t:vfdm8cogae4ilnpchk4hu761r2@ds047692.mlab.com:47692/heroku_3f9w290t");
 
 
 // Start the API server
