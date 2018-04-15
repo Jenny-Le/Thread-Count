@@ -21,8 +21,12 @@ class UserForm extends Component {
     return (
 
       <div className="row">
-        <form className="col s12" id="user-signup">
+        <form className="col s8 offset-s2" id="user-signup">
           <div className="row">
+            <div className="input-field col s12">
+              <input id="username" type="text" className="validate" onChange={this.props.handleChange.bind(this)} value={this.state.username} />
+              <label htmlFor="username">Username</label>
+            </div>
             <div className="input-field col s6">
               <input id="first_name" type="text" className="validate" onChange={this.props.handleChange.bind(this)} value={this.state.first_name} />
               <label htmlFor="first_name">First Name</label>
@@ -44,13 +48,16 @@ class UserForm extends Component {
               <label htmlFor="password">Password</label>
             </div>
           </div>
+          
+          <div className="col s8 offset-s2 member center-align">
+              Already have an account? <span onClick={() => this.props.handleFormChange('login')}>
+              <a href="#" className="sign-up">Log in here</a></span>
+          </div>
 
-          <button onClick={this.props.formSubmit.bind(this)} className="btn waves-effect waves-light">Submit
-          <i className="material-icons right">send</i>
-          </button>
-
-          <div className="col sm12">
-            <span onClick={() => this.props.handleFormChange('signup')}>Already a member? Log in</span>
+          <div className="right-align">
+            <button onClick={this.props.formSubmit.bind(this)} className="btn waves-effect waves-light">Submit
+              <i className="material-icons right">send</i>
+            </button>
           </div>
         </form>
       </div>

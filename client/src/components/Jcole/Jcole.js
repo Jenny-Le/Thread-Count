@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Login from "../Login";
 import Signup from "../Signup";
 
+//Creating a stateful Jcole component
 class Jcole extends Component {
     state = {
         form: 'login'

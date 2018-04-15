@@ -2,14 +2,14 @@ import axios from "axios"
 
 export default {
     // Gets all users
-    userLogin: function(userData) {
+    userLogin: function(userData, successLogin, errorLogin) {
       return axios.post("/api/users/login", {
-          email: userData.email,
+          username: userData.username,
           password: userData.password
       }).then(function(response){
-          console.log(response);
+        successLogin(response.data.user);
       }).catch(function(error){
-          console.log(error);
+          errorLogin();
       });
     }
   };

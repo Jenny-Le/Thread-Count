@@ -1,6 +1,11 @@
 const router = require("express").Router();
 const listingsController = require("../../controllers/listingsController");
 
+
+router
+  .route("/search")
+  .get(listingsController.search);
+
 // Matches with "/api/user"
 router.route("/")
   .get(listingsController.findAll)
@@ -12,5 +17,7 @@ router
   .get(listingsController.findById)
   .put(listingsController.update)
   .delete(listingsController.remove);
+
+
 
 module.exports = router;

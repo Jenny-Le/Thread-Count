@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+//Creating a saleSchema for our database
 const saleSchema = new Schema({
     price: {
         type: Number,

@@ -1,0 +1,9 @@
+#nav-mobile {
+    width: 100%;
+}
+
+.nav-link {
+    display: inline-block;
+    margin-left: 100px;
+    text-transform: uppercase;
+}

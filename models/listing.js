@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+//Creating a listingSchema for our databse
 const listingSchema = new Schema({
     gender: {
         type:String,

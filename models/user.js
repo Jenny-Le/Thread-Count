@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const passportLocalMongoose = require('passport-local-mongoose');
 
+//Creating a userSchema for our database
 const userSchema = new Schema({
     first_name: {
         type: String,
@@ -10,19 +12,6 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    
-    password: {
-        type: String,
-        trim: true,
-        required: "Password is Required",
-        validate: [
-            function (input) {
-                return input.length >= 6;
-            },
-            "Password should be longer."
-        ]
-    },
-
     email: {
         type: String,
         unique: true,
@@ -30,8 +19,14 @@ const userSchema = new Schema({
     },
     listings: [{
         type: Schema.Types.ObjectId, ref: 'Listing'
-    }]
+    }],
+    sales: [{
+        type: Schema.Types.ObjectId, ref: 'Sale'
+    }],
 });
+
+userSchema.plugin(passportLocalMongoose);
+
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;

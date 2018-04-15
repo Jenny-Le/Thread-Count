@@ -2,27 +2,100 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  color: #3C3B42 !important;
+  font-family: 'Lato', sans-serif;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+main {
+  flex: 1 0 auto;
 }
 
-.App-title {
-  font-size: 1.5em;
+a {
+  color: #CED1DD !important;
 }
 
-.App-intro {
-  font-size: large;
+a:hover {
+  color: #B7E6FF !important;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.btn {
+  background-color: #E88696 !important;
+  color: #FFF9FE !important;
+}
+
+.btn:hover {
+  color: #FFF9FE !important;
+}
+
+.input-field label {
+  color: #3C3B42 !important;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #E88696 !important;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #E88696 !important;
+  box-shadow: 0 1px 0 0 #E88696 !important;
+}
+/* valid color */
+.input-field input[type=text].valid {
+  border-bottom: 1px solid #E88696  !important;
+  box-shadow: 0 1px 0 0 #E88696  !important;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+  border-bottom: 1px solid #B7E6FF !important;
+  box-shadow: 0 1px 0 0 #B7E6FF !important;
+}
+
+.input-field input[type=email]:focus + label {
+  color: #E88696 !important;
+}
+/* label underline focus color */
+.input-field input[type=email]:focus {
+  border-bottom: 1px solid #E88696 !important;
+  box-shadow: 0 1px 0 0 #E88696 !important;
+}
+/* valid color */
+.input-field input[type=email].valid {
+  border-bottom: 1px solid #E88696  !important;
+  box-shadow: 0 1px 0 0 #E88696  !important;
+}
+/* invalid color */
+.input-field input[type=email].invalid {
+  border-bottom: 1px solid #B7E6FF !important;
+  box-shadow: 0 1px 0 0 #B7E6FF !important;
+}
+
+.input-field input[type=password]:focus + label {
+  color: #E88696 !important;
+}
+/* label underline focus color */
+.input-field input[type=password]:focus {
+  border-bottom: 1px solid #E88696 !important;
+  box-shadow: 0 1px 0 0 #E88696 !important;
+}
+/* valid color */
+.input-field input[type=password].valid {
+  border-bottom: 1px solid #E88696  !important;
+  box-shadow: 0 1px 0 0 #E88696  !important;
+}
+/* invalid color */
+.input-field input[type=password].invalid {
+  border-bottom: 1px solid #B7E6FF !important;
+  box-shadow: 0 1px 0 0 #B7E6FF !important;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #3C3B42 !important;
+}
+
+li > span {
+  color: #E88696  !important;
 }

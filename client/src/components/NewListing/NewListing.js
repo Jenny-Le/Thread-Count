@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import API from "./API";
-import ReactFilestack, { client } from 'filestack-react';
-import { Redirect }  from "react-router-dom"
+import ReactFilestack from 'filestack-react';
+import { Redirect }  from "react-router-dom";
+import { withCookies } from 'react-cookie';
+import './newlisting.css';
 
-const filestack = client.init('A191qbrAQNOWujKcfjlh2z');
-
+//Creating a stateful NewListing component
 class NewListing extends Component {
   constructor(props) {
     //setting up prop that is bassed in your component
@@ -17,7 +18,8 @@ class NewListing extends Component {
       price: '',
       name: '',
       image_url: '',
-      success: false
+      redirect: false,
+      user: ''
     }
   }
 
@@ -27,16 +29,29 @@ class NewListing extends Component {
   }
 
   componentDidMount() {
+    const { cookies } = this.props;
+    this.setState({cookies: cookies}, this.checkIfLoggedIn);
+    // jquery document on ready, initialize materialize select dropdowns
     window.$('document').ready(() => {
       window.$('select').formSelect();
     })
+
   }
 
+  // check if user is logged in or not, redirect to login page
+  checkIfLoggedIn(){
+    if(!this.state.cookies.get('user')) {
+        window.location.href = '/signup';
+    } else {
+      this.setState({user: this.state.cookies.get('user')._id}, () => console.log(this.state))
+    }
+  }
+
+  // Creating a redirectHome function to send user back home if NewListing is successful
   redirectHome(){
-    console.log('redirecting home');
-    this.setState({success: true});
+    this.setState({redirect: true});
   }
-
+  // Creating a formSubmit function for the form
   formSubmit(event) {
     event.preventDefault();
     API.createListing(this.state, this.redirectHome.bind(this))
@@ -49,14 +64,14 @@ class NewListing extends Component {
           <ReactFilestack
             apikey="A191qbrAQNOWujKcfjlh2z"
             buttonText="Upload an image"
-            buttonClass="btn grey lighten-5 blue-grey-text darken-3-text waves-effect waves-light btn-small"
+            buttonClass="btn waves-effect waves-light btn-small"
             onSuccess={response => this.setState({ image_url: response.filesUploaded[0].url }, () => console.log(this.state))}
           />
         </div>
       )
     }
   }
-
+// Creating a requiredFields function, so the form has to be completed before user can submit
   requiredFields(){
     // get all the keys in the state
     let keys = Object.keys(this.state);
@@ -71,12 +86,12 @@ class NewListing extends Component {
     return emptyFields;
   }
 
-
+//Rendering a new listing form
   render() {
     return (
       <div className="row">
         <div className="col s12 center">
-          <h5>Create a New Listing</h5>
+          <h5 className="form-title">Create a New Listing</h5>
         </div>
         <form className="col s12" id="new-listing">
           <div className="input-field col s12">
@@ -134,7 +149,7 @@ class NewListing extends Component {
           </div>
         </form>
         {
-          this.state.success ? <Redirect push to="/"/>  : ""
+          this.state.redirect ? <Redirect push to="/"/>  : ""
         }
         
       </div>
@@ -144,7 +159,7 @@ class NewListing extends Component {
 }
 
 
-export default NewListing;
+export default withCookies(NewListing);
 
 
 

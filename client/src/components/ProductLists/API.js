@@ -8,5 +8,19 @@ export default {
         }).catch(function (error) {
             console.log(error);
         });
+    },
+    searchListings: function (query, updateListings) {
+        return axios.get(`/api/listings/search?q=${query}`).then(function (response) {
+            updateListings(response.data)
+        }).catch(function (error) {
+            console.log(error);
+        });
+    },
+    createSales: function (salesData, redirect) {
+        return axios.post("/api/sales", salesData)
+        .then(redirect)
+        .catch(function (error) {
+            console.log(error);
+        });
     }
 }; 

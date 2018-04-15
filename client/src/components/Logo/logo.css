@@ -1,3 +1,11 @@
 .logo {
     font-family: 'Amatic SC', cursive;
+    font-weight: bold;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    color: #e88696;
+}
+
+.logo:hover {
+    color: #B7E6FF;
 }

@@ -9,6 +9,7 @@ class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      username: '',
       first_name: '',
       last_name: '',
       email: '',
@@ -19,20 +20,31 @@ class Signup extends Component {
   
   handleChange(event) {
     let fieldName = event.target.getAttribute('id');
-    this.setState({[fieldName]: event.target.value}, () => console.log(this.state));
+    this.setState({[fieldName]: event.target.value});
   }
 
+ //Sends the formSubmit to createUser API
   formSubmit(event){
-    console.log(event)
     event.preventDefault();
-    API.createUser(this.state)
+    API.createUser(this.state, this.createToast)
   }
 
+  createToast(message) {
+    console.log(message)
+    window.M.toast({html: message})
+  }
+
+    //Renders the component
   render () {
     return (
-      <UserForm handleChange={this.handleChange.bind(this)}
-                formSubmit={this.formSubmit.bind(this)}
-                {...this.props}/>
+      <div className='row'>
+        <div className='col s8 offset-s2 center-align'>
+          <h4 className="form-title">Sign Up</h4>
+        </div>
+        <UserForm handleChange={this.handleChange.bind(this)}
+                  formSubmit={this.formSubmit.bind(this)}
+                  {...this.props}/>
+      </div>
     )
   }
 }
