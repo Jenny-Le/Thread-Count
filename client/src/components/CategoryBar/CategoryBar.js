@@ -9,6 +9,7 @@ const CategoryBar = () => {
                 <a href="/?filter=boy">Boys</a>
                 <a href="/?filter=girl">Girls</a>
                 <a href="/?filter=tops">Tops</a>
+                <a href="/?filter=dresses">Dresses</a>
                 <a href="/?filter=bottoms">Bottoms</a>
                 <a href="/?filter=accessories">Accessories</a>
             </div>

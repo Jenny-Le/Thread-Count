@@ -18,9 +18,16 @@ export default {
     },
     createSales: function (salesData, redirect) {
         return axios.post("/api/sales", salesData)
-        .then(redirect)
-        .catch(function (error) {
-            console.log(error);
+            .then(redirect)
+            .catch(function (error) {
+                console.log(error);
+            });
+    },
+    deleteListings: function (listingId, callback) {
+        return axios.delete(`/api/listings/${listingId}`)
+            .then(function (response) { callback() })
+            .catch(function (error) {
+                console.log(error)
         });
     }
-}; 
+};

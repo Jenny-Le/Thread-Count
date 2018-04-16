@@ -43,13 +43,13 @@ class App extends Component {
             <CategoryBar />
             <Switch>
               {/* Telling which component to render. */}
-              <Route exact path="/" render={this.homeComponent.bind(this)} />
+              <Route path="/" render={this.homeComponent.bind(this)} />
               <Route exact path="/login" component={Jcole} />
               <Route exact path="/signup" component={Jcole} />
               <Route exact path="/listings/new" component={NewListing} />
               <Route exact path="/users/:id/edit" component={UserEdit} />
               <Route exact path="/image" component={ImageCard} />
-              <Route exact path="/order/success" component={ImageCard} />
+              <Route exact path="*" render={this.homeComponent.bind(this)} />
             </Switch>
           </main>
         </div>

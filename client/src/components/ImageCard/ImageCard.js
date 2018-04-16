@@ -34,6 +34,23 @@ class ImageCard extends Component {
         return true
     }
 
+    userExists() {
+        return (this.state.cookies && this.state.cookies.cookies.user)
+    }
+
+    userCanDelete() {
+        if(this.userExists() && this.props.listing.user && this.props.listing.user._id == JSON.parse(this.state.cookies.cookies.user)._id){
+        return (
+            <div className="close-container">
+                <span className="right"><a href="/" onClick={this.deleteListing.bind(this)}>DELETE</a></span>
+            </div>
+        )}
+    }
+
+    deleteListing() {
+        this.props.deleteItem(this.props.listing._id, this.props.redirectHome)
+    }
+
     render() {
         const listing = this.props.listing
         return (
@@ -55,9 +72,7 @@ class ImageCard extends Component {
                     <div className="card-reveal">
                         <div className="product-info">
                             <div className="card-top">
-                                <div className="close-container">
-                                    <i className="material-icons right">close</i>
-                                </div>
+                                {this.userCanDelete()}
                                 <div>
                                     <span className="card-title">
                                         <span className="listing-name">{listing.name}</span>

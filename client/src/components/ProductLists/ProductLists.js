@@ -14,7 +14,8 @@ class ProductLists extends Component {
             listings: [],
             filter: this.props.filter,
             orderSuccess: false,
-            cookies: null
+            cookies: null,
+            redirectHome: false,
         }
     }
 
@@ -71,7 +72,13 @@ class ProductLists extends Component {
 
     renderLists(){
         return this.state.listings.map((listing, idx) => {
-            return <ImageCard key={idx} id={idx} listing={listing} setItem={this.setItem.bind(this)} cookies={this.state.cookies}/>
+            return <ImageCard key={idx} 
+                              id={idx} 
+                              listing={listing}
+                              setItem={this.setItem.bind(this)}
+                              deleteItem={API.deleteListings}
+                              redirectHome={this.redirectHome.bind(this)}
+                              cookies={this.state.cookies}/>
         })
     }
 
@@ -83,6 +90,10 @@ class ProductLists extends Component {
                 </div>
             </div>
         )
+    }
+
+    redirectHome() {
+        this.setState({redirectHome: true})
     }
 
     renderEmptyElement() {
@@ -103,6 +114,7 @@ class ProductLists extends Component {
                 <div className="row">
                     {this.renderLists()}
                     {this.renderModal()}
+                    { this.state.redirectHome ? <Redirect to="/" /> : null }
                 </div>
             )
         }
