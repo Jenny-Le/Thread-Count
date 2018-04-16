@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./signup.css" 
 import API from "./API.js";
-import UserForm from "../UserForm"
+import UserForm from "../UserForm";
+import { Redirect } from "react-router-dom";
 
 
 // You need a constructor to recieve props in a stateful component & state has to be defined in a constructor if you're receiving props
@@ -13,7 +14,8 @@ class Signup extends Component {
       first_name: '',
       last_name: '',
       email: '',
-      password: ''
+      password: '',
+      success: false
     }
   } 
 
@@ -26,11 +28,14 @@ class Signup extends Component {
  //Sends the formSubmit to createUser API
   formSubmit(event){
     event.preventDefault();
-    API.createUser(this.state, this.createToast)
+    API.createUser(this.state, this.loginSuccess.bind(this), this.createToast)
+  }
+
+  loginSuccess() {
+    this.setState({success: true})
   }
 
   createToast(message) {
-    console.log(message)
     window.M.toast({html: message})
   }
 
@@ -38,6 +43,7 @@ class Signup extends Component {
   render () {
     return (
       <div className='row'>
+        { this.state.success ? <Redirect to="/" /> : null }
         <div className='col s8 offset-s2 center-align'>
           <h4 className="form-title">Sign Up</h4>
         </div>

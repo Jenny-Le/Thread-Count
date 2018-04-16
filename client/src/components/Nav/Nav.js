@@ -48,9 +48,6 @@ class Nav extends Component {
                     <li className="nav-link">
                         <Link to="/listings/new">List an Item</Link>
                     </li>
-                    <li className="nav-link">
-                        <Link to="/orders">My Orders</Link>
-                    </li>
                     <li className="nav-link"><a href="#" onClick={(e) => {e.preventDefault(); this.logOut()}}>Log Out</a></li>
                 </ul>
             )

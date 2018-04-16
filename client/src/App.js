@@ -7,7 +7,6 @@ import ImageCard from './components/ImageCard';
 import Jcole from './components/Jcole';
 import NewListing from './components/NewListing';
 import UserEdit from './components/UserEdit';
-import ProductLists from './components/ProductLists';
 import CategoryBar from './components/CategoryBar';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min.js';

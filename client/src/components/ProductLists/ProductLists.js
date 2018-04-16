@@ -4,6 +4,7 @@ import PaymentForm from '../PaymentForm/PaymentForm';
 import { withCookies } from 'react-cookie';
 import API from "./API";
 import { Redirect } from 'react-router-dom';
+import './productlists.css';
 
 
 class ProductLists extends Component {
@@ -38,10 +39,8 @@ class ProductLists extends Component {
         });
     }
 
-    redirectToOrderConfirmation(){
-        if(this.state.orderSuccess) {
-            return <Redirect to="/orders/success" />
-        }
+    showSuccessMessage(){
+        window.M.toast({html: "Purchase Confirmed!", displayLength: 1000, completeCallback: () => {window.location.reload()}})
     }
 
     setItem(data){
@@ -50,16 +49,12 @@ class ProductLists extends Component {
                        userId: JSON.parse(this.state.cookies.cookies.user)._id})
     }
 
-    setOrderSuccess() {
-        this.setState({orderSuccess: true})
-    }
-
     createSales() {
         API.createSales({
             listing: this.state.listingId,
             price: this.state.price,
             buyer: this.state.userId
-        }, this.setOrderSuccess.bind(this))
+        }, this.showSuccessMessage.bind(this))
     }
 
     updateListings(listings) {
@@ -90,14 +85,27 @@ class ProductLists extends Component {
         )
     }
 
-    render() {
+    renderEmptyElement() {
         return (
             <div className="row">
-                {this.renderLists()}
-                {this.renderModal()}
-                {this.redirectToOrderConfirmation()}
+                <div className="col s12 center-align">
+                    <h1 className="no-listings"> Sorry, no listings yet!</h1>
+                </div>
             </div>
         )
+    }
+
+    render() {
+        if(this.state.listings.length == 0){
+            return this.renderEmptyElement();
+        } else {
+            return (
+                <div className="row">
+                    {this.renderLists()}
+                    {this.renderModal()}
+                </div>
+            )
+        }
     }
 }
 
