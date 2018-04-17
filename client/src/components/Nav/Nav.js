@@ -48,6 +48,9 @@ class Nav extends Component {
                     <li className="nav-link">
                         <Link to="/listings/new">List an Item</Link>
                     </li>
+                    <li className="nav-link">
+                        <Link to={`/users/${this.state.cookies.get('user')._id}/edit`}>Account</Link>
+                    </li>
                     <li className="nav-link"><a href="#" onClick={(e) => {e.preventDefault(); this.logOut()}}>Log Out</a></li>
                 </ul>
             )

@@ -6,6 +6,7 @@ class UserForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      editForm: props.editForm || false
     }
   }
 
@@ -14,7 +15,19 @@ class UserForm extends Component {
       first_name: nextProps.first_name,
       last_name: nextProps.last_name,
       email: nextProps.email,
+      username: nextProps.username
     }, () => window.M.updateTextFields())
+  }
+
+  renderLoginLink(){
+    if(!this.state.editForm) {
+      return(
+        <div className="col s8 offset-s2 member center-align">
+            Already have an account? <span onClick={() => this.props.handleFormChange('login')}>
+            <a href="#" className="sign-up">Log in here</a></span>
+        </div>
+      )
+    }
   }
 
   render() {
@@ -49,10 +62,7 @@ class UserForm extends Component {
             </div>
           </div>
           
-          <div className="col s8 offset-s2 member center-align">
-              Already have an account? <span onClick={() => this.props.handleFormChange('login')}>
-              <a href="#" className="sign-up">Log in here</a></span>
-          </div>
+          {this.renderLoginLink()}
 
           <div className="right-align">
             <button onClick={this.props.formSubmit.bind(this)} className="btn waves-effect waves-light">Submit

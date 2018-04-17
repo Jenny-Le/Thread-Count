@@ -19,7 +19,7 @@ class UserEdit extends Component {
   }
 
   setUser(user) {
-    this.setState({ first_name: user.first_name, last_name: user.last_name, email: user.email, userId: user._id }, () => console.log(this.state))
+    this.setState({ username: user.username, first_name: user.first_name, last_name: user.last_name, email: user.email, userId: user._id }, () => console.log(this.state))
   }
 
   deleteUser() {
@@ -39,12 +39,15 @@ class UserEdit extends Component {
 
   render() {
     return (
-      <div>
+      <div className="row">
+        <div className='col s8 offset-s2 center-align'>
+          <h4 className="form-title">Edit Account</h4>
+        </div>
         <UserForm handleChange={this.handleChange.bind(this)}
           formSubmit={this.formSubmit.bind(this)}
+          editForm={true}
           {...this.state}
           {...this.props} />
-        <button onClick={this.deleteUser.bind(this)} className="btn waves-effect blue-grey waves-light">Delete</button>
       </div>
     )
   }
