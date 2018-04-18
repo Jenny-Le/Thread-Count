@@ -12,6 +12,12 @@ class ImageCard extends Component {
         }
     }
 
+    componentWillMount(){
+        window.$(document).ready(function(){
+            window.$('#modal1').modal();
+        });
+    }
+
     handleClick(e) {
         e.preventDefault();
         let data = {

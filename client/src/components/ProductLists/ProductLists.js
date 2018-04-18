@@ -23,7 +23,6 @@ class ProductLists extends Component {
         API.getListings(this.updateListings.bind(this));
         const { cookies } = this.props;
         this.setState({cookies: cookies})
-        this.initializeModal();
     }
 
     componentWillReceiveProps(nextProps) {
@@ -34,11 +33,7 @@ class ProductLists extends Component {
         }
     }
 
-    initializeModal() {
-        window.$(document).ready(function(){
-            window.$('.modal').modal();
-        });
-    }
+    
 
     showSuccessMessage(){
         window.M.toast({html: "Purchase Confirmed!", displayLength: 1000, completeCallback: () => {window.location.reload()}})

@@ -38,7 +38,7 @@ class Nav extends Component {
 
     logOut() {
         this.state.cookies.remove('user');
-        this.setState(this.state);
+        window.location.reload()
     }
 
     renderLoginLogout() {
