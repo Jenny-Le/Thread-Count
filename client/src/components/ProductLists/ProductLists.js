@@ -6,7 +6,7 @@ import API from "./API";
 import { Redirect } from 'react-router-dom';
 import './productlists.css';
 
-
+//Creating a stateful ProductLists component;
 class ProductLists extends Component {
     constructor(props) {
         super(props)

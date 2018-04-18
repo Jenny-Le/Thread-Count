@@ -12,7 +12,8 @@ class ImageCard extends Component {
         }
     }
 
-    handleClick() {
+    handleClick(e) {
+        e.preventDefault();
         let data = {
             listingId: this.props.listing._id,
             price: this.props.listing.price
@@ -28,7 +29,7 @@ class ImageCard extends Component {
     }
 
     buttonDisabled() {
-        if(this.state.cookies){
+        if(this.state.cookies.get('user')){
             return false
         }
         return true
