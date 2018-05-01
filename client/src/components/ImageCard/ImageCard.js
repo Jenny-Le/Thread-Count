@@ -11,29 +11,31 @@ class ImageCard extends Component {
             cookies: props.cookies
         }
     }
-
+ //will load when component mounts
     componentWillMount(){
         window.$(document).ready(function(){
             window.$('#modal1').modal();
         });
     }
 
+    
     handleClick(e) {
         e.preventDefault();
         let data = {
             listingId: this.props.listing._id,
             price: this.props.listing.price
         }
-
+        // function is coming from props, which is defined in the parent
         this.props.setItem(data)
     }
-
+     //cookies is value of next props, 
     willReceiveProps(nextProps){
         if(nextProps.cookies){
             this.setState({cookies: nextProps.cookies})
         }
     }
 
+    //if you can get the user from this cookies, we do this to check if we can get the button or not.
     buttonDisabled() {
         if(this.state.cookies.get('user')){
             return false
@@ -44,6 +46,7 @@ class ImageCard extends Component {
     userExists() {
         return (this.state.cookies && this.state.cookies.cookies.user)
     }
+
 
     userCanDelete() {
         if(this.userExists() && this.props.listing.user && this.props.listing.user._id == JSON.parse(this.state.cookies.cookies.user)._id){

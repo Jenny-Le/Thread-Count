@@ -14,6 +14,7 @@ class UserEdit extends Component {
     }
   }
 
+  //mounts and will call this function
   componentDidMount() {
     API.getUser(this.props.match.params.id, this.setUser.bind(this))
   }
@@ -31,6 +32,7 @@ class UserEdit extends Component {
     this.setState({ [fieldName]: event.target.value }, () => console.log(this.state));
   }
 
+  
   formSubmit(event) {
     console.log(event)
     event.preventDefault();

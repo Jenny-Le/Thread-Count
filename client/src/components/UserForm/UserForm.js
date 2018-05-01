@@ -10,12 +10,14 @@ class UserForm extends Component {
     }
   }
 
+  //Lifestyle function, gets called when different props are passed into this component. and then it will call this function with new props
   componentWillReceiveProps(nextProps) {
     this.setState({
       first_name: nextProps.first_name,
       last_name: nextProps.last_name,
       email: nextProps.email,
       username: nextProps.username
+      //materialize library, READ THE DOCS!
     }, () => window.M.updateTextFields())
   }
 
